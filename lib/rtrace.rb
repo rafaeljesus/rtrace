@@ -10,8 +10,8 @@ module Rtrace
     include Sneakers::Worker
     from_queue 'events'
 
-    def work(message)
-      payload = JSON.parse(message)
+    def work message
+      payload = JSON.parse message
       promises = [Event.trace(payload), Slack.notify(payload)]
       promises.map(&:execute).map { |p| p.tap(&:value) }
       ack!

@@ -7,8 +7,8 @@ module Rtrace
     field :name, type: String
     field :payload, type: Hash
 
-    def self.trace(event)
-      Concurrent::Promise.new { self.create(event) }
+    def self.trace event
+      Concurrent::Promise.new { self.create event  }
     end
   end
 end
