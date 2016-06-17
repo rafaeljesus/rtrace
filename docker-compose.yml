@@ -1,0 +1,24 @@
+version: '2'
+services:
+  api:
+    build: .
+    environment:
+      NODE_ENV: "development"
+    command: ruby bin/run.rb
+    volumes:
+    - .:/usr/rtrace
+    links:
+    - db
+    - rmq
+  db:
+    image: mongo
+    ports:
+    - "27017:27017"
+    volumes:
+    - /data/db2/:/data/db/
+    command: /usr/bin/mongod --smallfiles
+  rmq:
+    image: "rabbitmq:management"
+    hostname: "rmq"
+    ports:
+    - '15672:15672'

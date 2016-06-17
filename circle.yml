@@ -1,0 +1,13 @@
+machine:
+  ruby:
+    version: 2.1.2
+  services:
+    - docker
+deployment:
+  master:
+    branch: master
+    commands:
+      - docker build -t rafaeljesus/rtrace .
+      - docker login -e $DOCKERHUB_EMAIL -u $DOCKERHUB_USER -p $DOCKERHUB_PASS
+      - docker tag rafaeljesus/rtrace rafaeljesus/rtrace:master
+      - docker push rafaeljesus/rtrace:master
