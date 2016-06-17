@@ -1,5 +1,5 @@
-require 'minitest/autorun'
 require_relative '../config/setup'
+require 'minitest/autorun'
 require 'rtrace'
 
 describe Rtrace do
