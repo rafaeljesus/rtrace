@@ -11,3 +11,7 @@ deployment:
       - docker login -e $DOCKERHUB_EMAIL -u $DOCKERHUB_USER -p $DOCKERHUB_PASS
       - docker tag rafaeljesus/rtrace rafaeljesus/rtrace:master
       - docker push rafaeljesus/rtrace:master
+
+test:
+  override:
+    - ruby spec/rtrace_spec.rb
