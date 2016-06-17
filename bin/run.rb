@@ -12,4 +12,4 @@ Sneakers.configure(
 )
 Sneakers.logger.level = Logger::INFO
 
-Sneakers::Runner.new([Rtrace::Trace]).run
+Sneakers::Runner.new([Rtrace::Worker]).run

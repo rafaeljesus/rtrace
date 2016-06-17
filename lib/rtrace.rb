@@ -1,30 +1,20 @@
 require 'json'
 require 'sneakers'
-require 'slack-notifier'
-require 'concurrent'
 
 require 'rtrace/version'
 require 'rtrace/event'
+require 'rtrace/slack'
 
 module Rtrace
-  class Trace
+  class Worker
     include Sneakers::Worker
     from_queue 'events'
 
-    def initialize
-      @notifySlack = Slack::Notifier.new(SETTINGS['slack_url'])
-    end
-
     def work(message)
       payload = JSON.parse(message)
-
-      createEvent = Concurrent::Promise.new { Event.create(payload) }
-      notifySlack = Concurrent::Promise.new { @notifySlack.ping('Event created -> #{payload.name}') }
-
-      Concurrent::Promise
-        .all?(createEvent, notifySlack)
-        .then{ !ack }
-        .execute
+      promises = [Event.trace(payload), Slack.notify(payload)]
+      promises.map(&:execute).map { |p| p.tap(&:value) }
+      ack!
     end
   end
 end
