@@ -8,7 +8,7 @@ module Rtrace
     end
 
     def self.notify payload
-      Concurrent::Promise.new { @notifySlack.ping 'Event created -> #{payload.name}' }
+      Concurrent::Promise.new { @notifySlack.ping "Event created -> #{payload.name}" }
     end
   end
 end
