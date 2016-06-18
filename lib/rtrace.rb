@@ -13,8 +13,7 @@ module Rtrace
     def work message
       payload = JSON.parse message
       promises = [Event.trace(payload), Slack.notify(payload)]
-      promises.map(&:execute).map { |p| p.tap(&:value) }
-      ack!
+      promises.map(&:execute).map { ack! }
     end
   end
 end
