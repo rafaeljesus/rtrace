@@ -15,5 +15,3 @@ deployment:
 test:
   override:
     - ruby spec/rtrace_spec.rb
-  post:
-    - CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN bundle exec rake

@@ -1,10 +1,7 @@
 require_relative '../config/setup'
-require 'codeclimate-test-reporter'
 require 'minitest/autorun'
 require 'json'
 require 'rtrace'
-
-CodeClimate::TestReporter.start
 
 describe Rtrace do
   before do
