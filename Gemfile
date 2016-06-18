@@ -8,5 +8,7 @@ gem 'mongoid', '~> 5.1.0'
 
 group :development, :test do
   gem 'bunny'
+  gem 'minitest-reporters'
+  gem 'spy'
   gem 'byebug'
 end
