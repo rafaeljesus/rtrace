@@ -4,3 +4,10 @@ development:
       database: events_dev
       hosts:
         - localhost:27017
+
+test:
+  clients:
+    default:
+      database: events_test
+      hosts:
+        - localhost:27017

@@ -9,4 +9,5 @@ gem 'mongoid', '~> 5.1.0'
 group :development, :test do
   gem 'bunny'
   gem 'byebug'
+  gem "codeclimate-test-reporter", require: nil
 end
