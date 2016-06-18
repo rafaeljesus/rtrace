@@ -2,7 +2,6 @@
 
 [![CircleCI](https://circleci.com/gh/rafaeljesus/rtrace/tree/master.svg?style=svg)](https://circleci.com/gh/rafaeljesus/rtrace/tree/master)
 [![Code Climate](https://codeclimate.com/github/rafaeljesus/rtrace/badges/gpa.svg)](https://codeclimate.com/github/rafaeljesus/rtrace)
-[![Test Coverage](https://codeclimate.com/github/rafaeljesus/rtrace/badges/coverage.svg)](https://codeclimate.com/github/rafaeljesus/rtrace/coverage)
 
 * Async record any actions your system perform, along with any properties that describe the action
 * Send notifications for your slack channel
