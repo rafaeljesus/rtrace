@@ -14,4 +14,4 @@ deployment:
 
 test:
   override:
-    - ruby spec/rtrace_spec.rb
+    - bundle exec rake test

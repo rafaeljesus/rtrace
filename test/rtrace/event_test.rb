@@ -8,7 +8,7 @@ describe 'Rtrace::Event' do
     it 'should trace event' do
       payload = { name: 'order_created' }
       p = Rtrace::Event.trace(payload).execute
-      refute_nil p.value
+      refute_nil p.value._id
     end
   end
 end
