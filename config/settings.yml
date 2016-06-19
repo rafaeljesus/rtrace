@@ -1,3 +1,7 @@
 development:
   amqp_url: 'amqp://guest:guest@localhost'
   slack_url: 'https://hooks.slack.com/services/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'
+
+test:
+  amqp_url: 'amqp://guest:guest@localhost'
+  slack_url: 'https://hooks.slack.com/services/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'
