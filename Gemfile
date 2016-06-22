@@ -11,7 +11,6 @@ group :test do
   gem 'minitest-reporters'
   gem 'webmock'
   gem 'spy'
-  gem 'codeclimate-test-reporter'
 end
 
 group :development, :test do
